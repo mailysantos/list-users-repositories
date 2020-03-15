@@ -13,7 +13,7 @@ O **List Users Repositories** recebe nomes de repositórios do Github e mostra s
 
 ## Screenshots
 
-![image](https://github.com/mailysantos/DoeSangue/blob/master/images/tela_um.jpg)
-![image](https://github.com/mailysantos/DoeSangue/blob/master/images/tela_dois.jpg)
+![image](https://github.com/mailysantos/list-users-repositories/blob/master/images/tela_um.jpg)
+![image](https://github.com/mailysantos/list-users-repositories/blob/master/images/tela_dois.jpg)
 
 Made with :heart: by Maily Santos [Linkedin](https://www.linkedin.com/in/mailysantos/)
