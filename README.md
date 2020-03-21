@@ -4,12 +4,13 @@ Olá! Seja bem-vindo ao repositório do List Users Repositories.
 
 ## Aplicação
 
-O **List Users Repositories** recebe nomes de repositórios do Github e mostra suas últimas 5 issues. É uma proposta simples. Foi desenvolvido com ReactJS.
+O **List Users Repositories** recebe nomes de repositórios do Github e mostra suas issues. É uma proposta simples. Foi desenvolvido com ReactJS.
 
-## Veja Funcionando
-
-[![Assista uma demonstração](https://img.youtube.com/vi/DrVevcdJeMo/0.jpg)](https://www.youtube.com/watch?v=DrVevcdJeMo)
-
+## Upgrades
+- [x] Captar erros (try/catch)
+- [x] Verificar se o repositório é duplicado
+- [x] Filtro de estado na issue (open, closed, all)
+- [x] Paginação
 
 ## Screenshots
 

@@ -12,6 +12,8 @@ export default class Main extends Component {
         newRepo: '',
         repositories: [],
         loading: false,
+        error: null,
+        message: null,
     };
 
     componentDidMount() {
@@ -37,24 +39,41 @@ export default class Main extends Component {
     handleSubmit = async e => {
         e.preventDefault();
 
-        this.setState({ loading: true });
+        this.setState({ loading: true, error: false, message: false });
 
         const { newRepo, repositories } = this.state;
-        const response = await api.get(`/repos/${newRepo}`);
 
-        const data = {
-            name: response.data.full_name,
-        };
+        try {
+            if (newRepo === '')
+                throw new Error('O repositório não pode ser vazio!');
 
-        this.setState({
-            repositories: [...repositories, data],
-            newRepo: '',
-            loading: false,
-        });
+            const hasRepo = repositories.find(repo => repo.name === newRepo);
+            if(hasRepo)
+                throw new Error('Repositório duplicado.');
+
+            const response = await api.get(`/repos/${newRepo}`);
+
+            const data = {
+                name: response.data.full_name,
+            };
+
+            this.setState({
+                repositories: [...repositories, data],
+                newRepo: '',
+                loading: false,
+            });
+        } catch (error) {
+            this.setState({
+                error: true,
+                message: error.message,
+            });
+        } finally {
+            this.setState({ loading: false });
+        }
     };
 
     render() {
-        const { newRepo, repositories, loading } = this.state;
+        const { newRepo, repositories, loading, error, message } = this.state;
 
         return (
             <Container>
@@ -79,6 +98,8 @@ export default class Main extends Component {
                         )}
                     </SubmitButton>
                 </Form>
+
+                <small>{message}</small>
 
                 <List>
                     {repositories.map(repository => (
